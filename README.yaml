@@ -1,0 +1,58 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+# Name of this project
+name: terraform-azure-statebucket
+# Logo for this project
+#logo: docs/slalom-logo.png
+# License of this project
+license: "APACHE2"
+# Copyrights
+copyrights:
+  - name: "Slalom, LLC"
+    url: "https://slalom.com"
+    year: "2019"
+# Canonical GitHub repo
+github_repo: JamesWoolfenden/terraform-azure-statebucket
+# Badges to display
+badges:
+  - name: "Build Status"
+    image: "https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket.svg?branch=master"
+    url: "https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg"
+    url: "https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest"
+related:
+  - name: "Packages"
+    description: "Cloud Posse installer and distribution of native apps"
+    url: "https://github.com/cloudposse/packages"
+  - name: "Dev Harness"
+    description: "Cloud Posse Local Development Harness"
+    url: "https://github.com/cloudposse/dev"
+# References
+references:
+  - name: "Wikipedia - Test Harness"
+    description: 'The `build-harness` is similar in concept to a "Test Harness"'
+    url: "https://en.wikipedia.org/wiki/Test_harness"
+# Screenshots
+screenshots:
+  - name: "demo"
+    description: "Example of using the `build-harness` to build a docker image"
+    url: "https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg"
+# Short description of this project
+description: |-
+  This repos demonstrates how to set up remote state for use with Terrraform by Terraform.
+usage: |-
+  At the top of your `Makefile` add, the following...
+  ```make
+  something very smart
+  ```
+# Other files to include in this README from the project folder
+include:
+  - "docs/targets.md"
+# Contributors to this project
+contributors:
+  - name: "James Woolfenden"
+    github: "jameswoolfenden"
