@@ -14,18 +14,18 @@ Add a reference to this module to your tf code, like this:
 module "statebucket"
 {
   source      = "JamesWoolfenden/statebucket/azurerm"
-  version     = "0.0.1"
+  version     = "0.0.7"
   common_tags = "${var.common_tags}"
 }
 ```
 
 This module implements the common_tags scheme.   In the the example implementation **terraform.tfvars** you'll find a basic map described:
 
-  ```HCL
+```HCL
   common_tags={
     environment = "Production"
   }
-  ```
+```
 
 Expand on theses values to tag all your tagable resources.
 
