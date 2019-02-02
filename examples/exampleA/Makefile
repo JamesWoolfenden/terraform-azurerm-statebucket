@@ -33,6 +33,6 @@ docs:
 valid:
 	tflint
 	terraform fmt -check=true -diff=true
-first: init 
+first: init
 	terraform apply -target module.statebucket.local_file.remote_state -lock=false -auto-approve
 	terraform init -force-copy

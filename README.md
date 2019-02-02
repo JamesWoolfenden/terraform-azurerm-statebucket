@@ -4,8 +4,10 @@
 
 # terraform-azure-statebucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg)](https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest)
 
-This repos demonstrates how to set up remote state for use with Terrraform by Terraform, this time using Azure.
-usage: |-
+This repository demonstrates how to set up remote state for use with Terrraform by Terraform, this time in Azure.
+
+Usage:
+
 Add a reference to this module to your tf code, like this:
 
 ```make
@@ -17,7 +19,17 @@ module "statebucket"
 }
 ```
 
-This module implements the common_tags scheme. This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
+This module implements the common_tags scheme.   In the the example implementation **terraform.tfvars** you'll find a basic map described:
+
+  ```HCL
+  common_tags={
+    environment = "Production"
+  }
+  ```
+
+Expand on theses values to tag all your tagable resources.
+
+This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
 The second run pushes its own state to the state store.
 
 ---

@@ -54,7 +54,16 @@ description: |-
     common_tags = "${var.common_tags}"
   }
   ```
-  This module implements the common_tags scheme. This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
+  This module implements the common_tags scheme.
+  In the the example implementation you'll fina a basic map described:
+  ```HCL
+    common_tags={
+    environment = "Production"
+  }
+  ```
+  Expand on the values herein to tag all your tagable resources.
+
+  This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
   The second run pushes its own state to the state store.
 
 
