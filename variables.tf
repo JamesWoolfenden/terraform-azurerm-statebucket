@@ -8,7 +8,6 @@ variable "common_tags" {
   type        = "map"
 }
 
-
-locals{
-  subscriptionid="${replace(element(split("-",data.azurerm_subscription.current.id),0),"//subscriptions//","")}"
+locals {
+  subscriptionid = "${replace(element(split("-",data.azurerm_subscription.current.id),0),"//subscriptions//","")}"
 }

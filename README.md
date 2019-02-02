@@ -4,57 +4,49 @@
 
 # terraform-azure-statebucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg)](https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest)
 
+This repos demonstrates how to set up remote state for use with Terrraform by Terraform, this time using Azure.
+usage: |-
+Add a reference to this module to your tf code, like this:
 
-This repos demonstrates how to set up remote state for use with Terrraform by Terraform.
+```make
+module "statebucket"
+{
+  source      = "JamesWoolfenden/statebucket/azurerm"
+  version     = "0.0.1"
+  common_tags = "${var.common_tags}"
+}
+```
+
+This module implements the common_tags scheme. This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
+The second run pushes its own state to the state store.
 
 ---
 
-This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
-
+This project uses the "build-harness",, a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
-
-
-
-
-
-
-
 ## Screenshots
-
 
 ![demo](https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg)
 *Example of using the `build-harness` to build a docker image*
 
-
-
-
-## Usage
-
-At the top of your `Makefile` add, the following...
-```make
-something very smart
-```
-
-
-
-
-
-
 ## Makefile Targets
 
-```make
-Available targets:
+```## Inputs
 
-  help                                Help screen
-  help/all                            Display help for all targets
-  help/short                          This help short screen
-  lint:                              Lint terraform code
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| common_tags | This is a map type for applying tags on resources | map | - | yes |
+| location | Azure Region to use | string | `UK South` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| subscription_id | - |
 
 ```
-
-
 
 ## Related Projects
 
@@ -63,16 +55,11 @@ Check out these related projects.
 - [Packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps
 - [Dev Harness](https://github.com/cloudposse/dev) - Cloud Posse Local Development Harness
 
-
-
-
 ## References
 
 For additional context, refer to some of these links.
 
 - [Wikipedia - Test Harness](https://en.wikipedia.org/wiki/Test_harness) - The `build-harness` is similar in concept to a "Test Harness"
-
-
 
 ## Help
 
@@ -87,15 +74,9 @@ File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-azure-statebu
 Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-azure-statebucket/issues) to report any bugs or file feature requests.
 
 
-
 ## Copyrights
 
 Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
-
-
-
-
-
 
 ## License
 
@@ -120,30 +101,17 @@ See [LICENSE](LICENSE) for full details.
     specific language governing permissions and limitations
     under the License.
 
-
-
-
-
-
-
-
-
-
-
-
 ### Contributors
 
-|  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
-|---|
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
 
   [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
   [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 
-
-
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
+[slack]: https://cpco.io/slack
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
 
@@ -151,5 +119,4 @@ See [LICENSE](LICENSE) for full details.
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-azure-statebucket&url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
 [share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-azure-statebucket
-[share_googleplus]: https://plus.google.com/share?url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
 [share_email]: mailto:?subject=terraform-azure-statebucket&body=https://github.com/JamesWoolfenden/terraform-azure-statebucket

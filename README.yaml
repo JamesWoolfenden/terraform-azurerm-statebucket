@@ -43,15 +43,24 @@ screenshots:
     url: "https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg"
 # Short description of this project
 description: |-
-  This repos demonstrates how to set up remote state for use with Terrraform by Terraform.
-usage: |-
-  At the top of your `Makefile` add, the following...
+  This repos demonstrates how to set up remote state for use with Terrraform by Terraform, this time using Azure.
+  usage: |-
+  Add a reference to this module to your tf code, like this
   ```make
-  something very smart
+  module "statebucket"
+  {
+    source      = "JamesWoolfenden/statebucket/azurerm"
+    version     = "0.0.1"
+    common_tags = "${var.common_tags}"
+  }
   ```
+  This module implements the common_tags scheme. This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
+  The second run pushes its own state to the state store.
+
+
 # Other files to include in this README from the project folder
 include:
-  - "docs/targets.md"
+  - "docs/terraform.md"
 # Contributors to this project
 contributors:
   - name: "James Woolfenden"
