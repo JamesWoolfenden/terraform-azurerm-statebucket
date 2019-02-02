@@ -5,6 +5,18 @@
 #
 # Name of this project
 name: terraform-azure-statebucket
+
+# Tags of this project
+tags:
+  - azure
+  - terraform
+  - terraform-modules
+  - statebucket
+
+# Categories of this project
+categories:
+  - terraform
+  - azure
 # Logo for this project
 #logo: docs/slalom-logo.png
 # License of this project

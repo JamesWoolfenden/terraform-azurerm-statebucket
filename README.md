@@ -4,11 +4,9 @@
 
 # terraform-azure-statebucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg)](https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest)
 
-This repository demonstrates how to set up remote state for use with Terrraform by Terraform, this time in Azure.
-
-Usage:
-
-Add a reference to this module to your tf code, like this:
+This repository demonstrates how to set up remote state for use with Terraform by Terraform, this time in Azure.
+usage: |-
+Add a reference to this module to your tf code, like this
 
 ```make
 module "statebucket"
@@ -23,18 +21,18 @@ This module implements the common_tags scheme.   In the the example implementati
 
 ```HCL
   common_tags={
-    environment = "Production"
-  }
+  environment = "Production"
+}
 ```
 
-Expand on theses values to tag all your tagable resources.
+Expand on these values to tag all your tagable resources.
 
 This module should be run before nearly anything else as it sets up the remote state store. To do this it needs to be run twice. The first time to create the storage and also its own remote state file.
 The second run pushes its own state to the state store.
 
 ---
 
-This project uses the "build-harness",, a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
+This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
@@ -43,9 +41,7 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 ![demo](https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg)
 *Example of using the `build-harness` to build a docker image*
 
-## Makefile Targets
-
-```## Inputs
+## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -57,8 +53,6 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 | Name | Description |
 |------|-------------|
 | subscription_id | - |
-
-```
 
 ## Related Projects
 
@@ -84,7 +78,6 @@ File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-azure-statebu
 ### Bug Reports & Feature Requests
 
 Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-azure-statebucket/issues) to report any bugs or file feature requests.
-
 
 ## Copyrights
 
@@ -115,7 +108,7 @@ See [LICENSE](LICENSE) for full details.
 
 ### Contributors
 
-[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
+  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
 
   [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
   [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
