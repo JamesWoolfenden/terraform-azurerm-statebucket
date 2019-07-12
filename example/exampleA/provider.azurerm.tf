@@ -1,11 +1,11 @@
 provider "azurerm" {
-  version = "1.21"
+  version = "1.31"
 }
 
 provider "local" {
-  version = "1.1"
+  version = "1.3"
 }
 
 provider "template" {
-  version = "2.0"
+  version = "2.1"
 }

@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "terraform" {
-  name     = "terraform"
-  location = "${var.location}"
+  name     = var.resource_group_name
+  location = var.location
 
-  tags = "${var.common_tags}"
+  tags = var.common_tags
 }

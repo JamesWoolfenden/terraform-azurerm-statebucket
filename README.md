@@ -6,14 +6,14 @@
 
 This repository demonstrates how to set up remote state for use with Terraform by Terraform, this time in Azure.
 usage: |-
-Add a reference to this module to your tf code, like this
+Add a reference to this module to your tf code, like this:
 
 ```make
 module "statebucket"
 {
   source      = "JamesWoolfenden/statebucket/azurerm"
-  version     = "0.0.7"
-  common_tags = "${var.common_tags}"
+  version     = "0.0.8"
+  common_tags = var.common_tags
 }
 ```
 
@@ -32,14 +32,7 @@ The second run pushes its own state to the state store.
 
 ---
 
-This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
-
-It's 100% Open Source and licensed under the [APACHE2](LICENSE).
-
-## Screenshots
-
-![demo](https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg)
-*Example of using the `build-harness` to build a docker image*
+This project is 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Inputs
 
@@ -58,14 +51,9 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 Check out these related projects.
 
-- [Packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps
-- [Dev Harness](https://github.com/cloudposse/dev) - Cloud Posse Local Development Harness
-
 ## References
 
 For additional context, refer to some of these links.
-
-- [Wikipedia - Test Harness](https://en.wikipedia.org/wiki/Test_harness) - The `build-harness` is similar in concept to a "Test Harness"
 
 ## Help
 
@@ -89,22 +77,22 @@ Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
 
 See [LICENSE](LICENSE) for full details.
 
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-      https://www.apache.org/licenses/LICENSE-2.0
+<https://www.apache.org/licenses/LICENSE-2.0>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
 
 ### Contributors
 
