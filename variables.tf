@@ -1,6 +1,6 @@
 variable "location" {
   type        = string
-  description = "Azure Region to use"
+  description = "Azure Region to use, defaults to UK South"
   default     = "UK South"
 }
 
@@ -11,19 +11,20 @@ variable "common_tags" {
 
 variable "account_tier" {
   type        = string
-  description = "Defaulting setting of the account tier"
+  description = "Defaults to Standard, refer to azurerm provider docs for azurerm_storage_account to see valid values."
   default     = "Standard"
 }
 
 variable "account_replication_type" {
   type        = string
-  description = "Default stoage setting to Locally Reducndant only"
+  description = "Defaults to LRS, refer to azurerm provider docs for azurerm_storage_account to see valid values."
   default     = "LRS"
 }
 
 variable "resource_group_name" {
-  type    = string
-  default = "terraform"
+  description = "Name of resource group in which to deploy storage account."
+  type        = string
+  default     = "terraform"
 }
 
 locals {
