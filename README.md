@@ -13,6 +13,7 @@ module "statebucket"
 {
   source      = "JamesWoolfenden/statebucket/azurerm"
   version     = "0.0.8"
+  location    = "UK South"
   common_tags = var.common_tags
 }
 ```
