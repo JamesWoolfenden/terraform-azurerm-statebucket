@@ -11,7 +11,7 @@ Add a reference to this module to your tf code, like this:
 ```make
 module "statebucket"
 {
-  source      = "JamesWoolfenden/statebucket/azurerm"
+  source      = "JamesWoolfenden/statebucket/azure"
   version     = "0.0.8"
   common_tags = var.common_tags
 }
