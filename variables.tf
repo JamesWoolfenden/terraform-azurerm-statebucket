@@ -21,11 +21,11 @@ variable "account_replication_type" {
   default     = "LRS"
 }
 
-locals {
-  subscriptionid = replace(element(split("-", data.azurerm_subscription.current.id), 0), "//subscriptions//", "")
-}
-
 variable "resource_group_name" {
   type    = string
   default = "terraform"
+}
+
+locals {
+  subscriptionid = replace(element(split("-", data.azurerm_subscription.current.id), 0), "//subscriptions//", "")
 }
