@@ -7,18 +7,21 @@ usage: |-
 Add a reference to this module to your tf code, like this:
 
 ```terraform
-module "statebucket"
-{
-  source      = "JamesWoolfenden/statebucket/azure"
-  version     = "0.0.8"
-  common_tags = var.common_tags
+module "statebucket" {
+  source                   = "JamesWoolfenden/statebucket/azure"
+  version                  = "0.0.8"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  location                 = "UK South"
+  resource_group_name      = "terraform"
+  common_tags              = var.common_tags
 }
 ```
 
 This module implements the common_tags scheme.   In the the example implementation **terraform.tfvars** you'll find a basic map described:
 
 ```HCL
-  common_tags={
+common_tags = {
   environment = "Production"
 }
 ```
@@ -37,7 +40,10 @@ This project is 100% Open Source and licensed under the [APACHE2](LICENSE).
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | common_tags | This is a map type for applying tags on resources | map | - | yes |
-| location | Azure Region to use | string | `UK South` | no |
+| location | azure region to use | string | `uk south` | no |
+| account_tier | Defines the Tier to use for storage account. | string | `Standard` | no |
+| account_replication_type | Defines the type of replication to use for storage account. | string | `LRS` | no |
+| resource_group_name | The name of the resource group in which to create the storage account. | string | `terraform` | no |
 
 ## Outputs
 
