@@ -1,6 +1,12 @@
+
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-azure-statebucket [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-azure-statebucket) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg)](https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest)
+# terraform-azure-statebucket
+
+[![Build Status](https://github.com/JamesWoolfenden/terraform-azure-statebucket/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-azure-statebucket)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azure-statebucket.svg)](https://github.com/JamesWoolfenden/terraform-azure-statebucket/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 This repository demonstrates how to set up remote state for use with Terraform by Terraform, this time in Azure.
 usage: |-
@@ -9,7 +15,7 @@ Add a reference to this module to your tf code, like this:
 ```terraform
 module "statebucket" {
   source                   = "JamesWoolfenden/statebucket/azure"
-  version                  = "0.0.8"
+  version                  = "0.2.0"
   account_tier             = "Standard"
   account_replication_type = "LRS"
   location                 = "UK South"
