@@ -30,3 +30,10 @@ variable "resource_group_name" {
 locals {
   subscriptionid = replace(element(split("-", data.azurerm_subscription.current.id), 0), "//subscriptions//", "")
 }
+
+
+variable "enable_https_traffic_only" {
+  type        = string
+  description = "Set traffic to be encrypted"
+  default     = true
+}

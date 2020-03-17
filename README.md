@@ -64,6 +64,9 @@ This project is 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 | Name | Description |
 |------|-------------|
+| resource\_group | n/a |
+| storage\_account | n/a |
+| storage\_container | n/a |
 | subscription\_id | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
