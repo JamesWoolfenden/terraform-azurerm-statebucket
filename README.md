@@ -24,7 +24,7 @@ module "statebucket" {
 }
 ```
 
-This module implements the common_tags scheme.   In the the example implementation **terraform.tfvars** you'll find a basic map described:
+This module implements the common_tags scheme.   In the the example implementation **examplea.auto.tfvars** you'll find a basic map described:
 
 ```HCL
 common_tags = {

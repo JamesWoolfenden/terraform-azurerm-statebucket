@@ -13,3 +13,4 @@ build-harness
 *~HEAD
 *backup
 *.orig
+example/examplea/remote_state.tf
