@@ -1,6 +1,3 @@
-
-[![Slalom][logo]](https://slalom.com)
-
 # terraform-azure-statebucket
 
 [![Build Status](https://github.com/JamesWoolfenden/terraform-azure-statebucket/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-azure-statebucket)
@@ -24,7 +21,7 @@ module "statebucket" {
 }
 ```
 
-This module implements the common_tags scheme.   In the the example implementation **examplea.auto.tfvars** you'll find a basic map described:
+This module implements the common_tags scheme. In the the example implementation **examplea.auto.tfvars** you'll find a basic map described:
 
 ```HCL
 common_tags = {
@@ -40,36 +37,11 @@ The second run pushes its own state to the state store.
 ---
 
 This project is 100% Open Source and licensed under the [APACHE2](LICENSE).
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Providers
-
-| Name | Version |
-|------|---------|
-| azurerm | n/a |
-| local | n/a |
-| template | n/a |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| account\_replication\_type | Defaults to LRS, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"LRS"` | no |
-| account\_tier | Defaults to Standard, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"Standard"` | no |
-| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
-| enable\_https\_traffic\_only | Set traffic to be encrypted | `string` | `true` | no |
-| location | Azure Region to use, defaults to UK South | `string` | `"UK South"` | no |
-| resource\_group\_name | Name of resource group in which to deploy storage account. | `string` | `"terraform"` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| resource\_group | n/a |
-| storage\_account | n/a |
-| storage\_container | n/a |
-| subscription\_id | n/a |
-
+Error: no lines in file
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Related Projects
 
 Check out these related projects.
@@ -92,7 +64,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-azur
 
 ## Copyrights
 
-Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 James Woolfenden
 
 ## License
 
@@ -101,35 +73,31 @@ Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 See [LICENSE](LICENSE) for full details.
 
 Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
+or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
+regarding copyright ownership. The ASF licenses this file
 to you under the Apache License, Version 2.0 (the
 "License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
+with the License. You may obtain a copy of the License at
 
 <https://www.apache.org/licenses/LICENSE-2.0>
 
 Unless required by applicable law or agreed to in writing,
 software distributed under the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
+KIND, either express or implied. See the License for the
 specific language governing permissions and limitations
 under the License.
 
 ### Contributors
 
-  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
 
-  [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
-  [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-
-[logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
-[website]: https://slalom.com
+[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
+[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [github]: https://github.com/jameswoolfenden
-[linkedin]: https://www.linkedin.com/company/slalom-consulting/
-[twitter]: https://twitter.com/Slalom
-
+[linkedin]: https://www.linkedin.com/in/jameswoolfenden/
+[twitter]: https://twitter.com/JimWoolfenden
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-azure-statebucket&url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-azure-statebucket&url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-azure-statebucket
