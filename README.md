@@ -39,7 +39,38 @@ The second run pushes its own state to the state store.
 This project is 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-Error: no lines in file
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | n/a |
+| local | n/a |
+| template | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| account\_replication\_type | Defaults to LRS, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"LRS"` | no |
+| account\_tier | Defaults to Standard, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"Standard"` | no |
+| common\_tags | This is a map type for applying tags on resources | `map` | n/a | yes |
+| enable\_https\_traffic\_only | Set traffic to be encrypted | `string` | `true` | no |
+| location | Azure Region to use, defaults to UK South | `string` | `"UK South"` | no |
+| resource\_group\_name | Name of resource group in which to deploy storage account. | `string` | `"terraform"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| resource\_group | n/a |
+| storage\_account | n/a |
+| storage\_container | n/a |
+| subscription\_id | n/a |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
