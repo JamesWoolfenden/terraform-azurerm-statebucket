@@ -31,8 +31,8 @@ docs:
 	terraform-docs md . > README.md
 
 valid:
-	tflint
 	terraform fmt -check=true -diff=true
+	checkov -d . --external-checks-dir ../../checkov
 first: init
 	terraform apply -target module.statebucket.local_file.remote_state -lock=false -auto-approve
 	terraform init -force-copy
