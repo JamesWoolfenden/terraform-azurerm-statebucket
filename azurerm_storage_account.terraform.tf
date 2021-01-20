@@ -1,5 +1,6 @@
 resource "azurerm_storage_account" "terraform" {
   #checkov:skip=CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
+  #checkov:skip=CKV_AZURE_43: "Ensure the Storage Account naming rules"
   name                      = "terraform${local.subscriptionid}"
   resource_group_name       = azurerm_resource_group.terraform.name
   location                  = var.location
@@ -10,10 +11,10 @@ resource "azurerm_storage_account" "terraform" {
 
   queue_properties {
     logging {
-      delete  = enabled
-      read    = enabled
+      delete  = true
+      read    = true
       version = 2
-      write   = enabled
+      write   = true
     }
   }
   tags = var.common_tags

@@ -1,9 +1,11 @@
 #Makefile
 ifdef OS
-   RM = $(powershell  –noprofile rm .\terraform\modules -force -recurse)
+   BLAT = $(powershell  -noprofile rm .\.terraform\ -force -recurse)
+   RM = $(powershell  –noprofile rm .\.terraform\ -force -recurse)
 else
    ifeq ($(shell uname), Linux)
-      RM = rm .terraform/modules/ -fr
+      RM  = rm .terraform/modules/ -fr
+      BLAT= rm .terraform/ -fr
    endif
 endif
 
@@ -13,7 +15,7 @@ all: init plan build
 
 init:
 	$(RM)
-	terraform init -reconfigure
+	terraform init -reconfigure -upgrade
 
 plan: init
 	terraform plan -refresh=true
@@ -31,7 +33,7 @@ docs:
 	terraform-docs md . > README.md
 
 valid:
-	terraform fmt -check=true -diff=true
+	terraform fmt
 	checkov -d . --external-checks-dir ../../checkov
 first: init
 	terraform apply -target module.statebucket.local_file.remote_state -lock=false -auto-approve

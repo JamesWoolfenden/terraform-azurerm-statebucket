@@ -5,10 +5,13 @@
 
 # Module directory
 .terraform
+__pycache__/
 .idea
 *.iml
 *.ini
 *~HEAD
 *backup
+.terraform.tfstate.lock.info
+.terraform.lock.hcl
 *.orig
 example/examplea/remote_state.tf
