@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      version = "2.43.0"
+      version = "2.47.0"
       source  = "hashicorp/azurerm"
     }
     template = {
@@ -13,4 +13,5 @@ terraform {
       version = "2.0.0"
     }
   }
+  required_version = ">= 0.14"
 }
