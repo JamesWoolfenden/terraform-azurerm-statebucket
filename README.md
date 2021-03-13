@@ -55,6 +55,21 @@ No requirements.
 | local | n/a |
 | template | n/a |
 
+## Modules
+
+No Modules.
+
+## Resources
+
+| Name |
+|------|
+| [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) |
+| [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) |
+| [azurerm_storage_container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) |
+| [azurerm_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) |
+| [local_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) |
+| [template_file](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -74,7 +89,6 @@ No requirements.
 | storage\_account | n/a |
 | storage\_container | n/a |
 | subscription\_id | n/a |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
