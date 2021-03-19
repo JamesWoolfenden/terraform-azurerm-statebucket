@@ -35,13 +35,18 @@ jobs:
         with:
           ref: ${{ env.branch }}
           token: ${{ github.token }}
-      - name: Run Checkov action
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: ${{ env.tf_target_dir }}
-          output_format: json
+      - name: install checkov
+        run: |
+          pip3 install checkov
+      - name: run checkov
+        run: checkov -d  ${{ env.tf_target_dir }} -o json | tee checkov.json
         continue-on-error: true
+      - name: store
+        uses: actions/upload-artifact@v2
+        with:
+          name: checkov
+          path: checkov.json
+          if-no-files-found: error
   terrascan:
     runs-on: ubuntu-latest
     steps:
