@@ -51,44 +51,44 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| azurerm | n/a |
-| local | n/a |
-| template | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_local"></a> [local](#provider\_local) | n/a |
+| <a name="provider_template"></a> [template](#provider\_template) | n/a |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) |
-| [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) |
-| [azurerm_storage_container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) |
-| [azurerm_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) |
-| [local_file](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) |
-| [template_file](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) |
+| Name | Type |
+|------|------|
+| [azurerm_resource_group.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_storage_account.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
+| [local_file.remote_state](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [template_file.remote_state](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| account\_replication\_type | Defaults to LRS, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"LRS"` | no |
-| account\_tier | Defaults to Standard, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"Standard"` | no |
-| common\_tags | This is a map type for applying tags on resources | `map(any)` | n/a | yes |
-| enable\_https\_traffic\_only | Set traffic to be encrypted | `string` | `true` | no |
-| location | Azure Region to use, defaults to UK South | `string` | `"UK South"` | no |
-| resource\_group\_name | Name of resource group in which to deploy storage account. | `string` | `"terraform"` | no |
+| <a name="input_account_replication_type"></a> [account\_replication\_type](#input\_account\_replication\_type) | Defaults to LRS, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"LRS"` | no |
+| <a name="input_account_tier"></a> [account\_tier](#input\_account\_tier) | Defaults to Standard, refer to azurerm provider docs for azurerm\_storage\_account to see valid values. | `string` | `"Standard"` | no |
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is a map type for applying tags on resources | `map(any)` | n/a | yes |
+| <a name="input_enable_https_traffic_only"></a> [enable\_https\_traffic\_only](#input\_enable\_https\_traffic\_only) | Set traffic to be encrypted | `string` | `true` | no |
+| <a name="input_location"></a> [location](#input\_location) | Azure Region to use, defaults to UK South | `string` | `"UK South"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of resource group in which to deploy storage account. | `string` | `"terraform"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| resource\_group | n/a |
-| storage\_account | n/a |
-| storage\_container | n/a |
-| subscription\_id | n/a |
+| <a name="output_resource_group"></a> [resource\_group](#output\_resource\_group) | n/a |
+| <a name="output_storage_account"></a> [storage\_account](#output\_storage\_account) | n/a |
+| <a name="output_storage_container"></a> [storage\_container](#output\_storage\_container) | n/a |
+| <a name="output_subscription_id"></a> [subscription\_id](#output\_subscription\_id) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
