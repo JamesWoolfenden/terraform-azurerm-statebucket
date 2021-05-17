@@ -6,11 +6,19 @@ on:
   workflow_dispatch:
 
 env:
-  terraform: 0.14.8
+  terraform: 0.15.0
   tf_target_dir: example/examplea
 
 jobs:
   terraform:
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Do not change
+      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,17 +26,19 @@ jobs:
         with:
           token: ${{ github.token }}
       - name: Terraform Init
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: ${{ env.terraform }}
-          tf_actions_subcommand: init
-          tf_actions_working_dir: ${{ env.tf_target_dir }}
+        run: terraform init
+        working-directory: ${{ env.tf_target_dir }}
       - name: Terraform Validate
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: ${{ env.terraform }}
-          tf_actions_subcommand: validate
-          tf_actions_working_dir: ${{ env.tf_target_dir }}
+        run: terraform validate
+        working-directory: ${{ env.tf_target_dir }}
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: ${{ env.tf_target_dir }}
+        env:
+          TF_VAR_client_id: ${{ secrets.ARM_CLIENT_ID }}
+          TF_VAR_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          TF_VAR_tenant_id: ${{ secrets.ARM_TENANT_ID }}
   security:
     runs-on: ubuntu-latest
     steps:
@@ -41,10 +51,30 @@ jobs:
           python-version: 3.8
       - run: |
           pip3 install lastversion
-          now=$(lastversion terraform-docs)
+          lastversion terraform-docs --assets -d --verbose
           mkdir $GITHUB_WORKSPACE/bin
-          curl -L https://github.com/terraform-docs/terraform-docs/releases/download/v${now}/terraform-docs-v${now}-$(uname)-amd64.tar.gz -o terraform-docs.tar.gz
-          tar -xvf terraform-docs.tar.gz --directory $GITHUB_WORKSPACE/bin
+          tar -xvf terraform-docs*.tar.gz --directory $GITHUB_WORKSPACE/bin
           chmod +x $GITHUB_WORKSPACE/bin/terraform-docs
           echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
       - uses: pre-commit/action@v2.0.0
+  infracost:
+    runs-on: ubuntu-latest
+    name: Show infracost diff
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Run infracost diff
+        uses: infracost/infracost-gh-action@master # Use a specific version instead of master if locking is preferred
+        env:
+          INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Do not change
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          # See the cloud credentials section for the options
+        with:
+          entrypoint: /scripts/ci/diff.sh # Do not change
+          path: ${{ env.tf_target_dir }}
+          usage_file: ${{ env.tf_target_dir }}/infracost-usage.yml
+          #terraform_plan_flags: -var-file=my.tfvars
