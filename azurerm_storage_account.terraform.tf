@@ -1,6 +1,9 @@
 resource "azurerm_storage_account" "terraform" {
-  #checkov:skip=CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
-  #checkov:skip=CKV_AZURE_43: "Ensure the Storage Account naming rules"
+  # checkov:skip=CKV2_AZURE_8: todo
+  # checkov:skip=CKV2_AZURE_18: todo
+  # checkov:skip=CKV2_AZURE_1: todo
+  # checkov:skip=CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
+  # checkov:skip=CKV_AZURE_43: "Ensure the Storage Account naming rules"
   name                      = "terraform${local.subscriptionid}"
   resource_group_name       = azurerm_resource_group.terraform.name
   location                  = var.location
