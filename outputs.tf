@@ -7,7 +7,8 @@ output "resource_group" {
 }
 
 output "storage_account" {
-  value = azurerm_storage_account.terraform
+  value     = azurerm_storage_account.terraform
+  sensitive = true
 }
 
 output "storage_container" {

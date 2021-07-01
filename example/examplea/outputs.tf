@@ -7,7 +7,8 @@ output "resource_group" {
 }
 
 output "storage_account" {
-  value = module.statebucket.storage_account
+  value     = module.statebucket.storage_account
+  sensitive = true
 }
 
 output "storage_container" {
